@@ -3,12 +3,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -33,6 +34,27 @@ export function ContactForm({ className }: { className?: string }) {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // This will be type-safe and validated.
     console.log(values);
+
+    const payload = {
+      from_name: values.email,
+      message: values.text,
+    };
+
+    emailjs
+      .send(
+        "service_iy3qtzm",
+        "template_first_interest",
+        payload,
+        "HEBSCXpaVmOM3M49Q"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   }
 
   return (

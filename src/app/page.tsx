@@ -147,9 +147,9 @@ export default function Home() {
           <p className="text-secondary text-xl font-bold">Atas Lapenas</p>
           <p className="text-lg text-secondary">
             Hei, jeg er elev ved Lillestrøm Vgs. Jeg synes realfag er veldig gøy
-            og jeg presterer veldig godt i det. Jeg har forsert matte og vil
-            gjerne dele min kunnskap. I fritiden min programmerer jeg nettsider
-            og{" "}
+            og jeg presterer veldig godt i det. Uten å skryte for mye, så tar
+            jeg universitetsmatte og vil gjerne dele min kunnskap. I fritiden
+            min programmerer jeg nettsider og{" "}
             <a href="_blank" className="">
               annet diverse som du kan sjekke ut her.
             </a>{" "}
