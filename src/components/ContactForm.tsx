@@ -46,9 +46,9 @@ export function ContactForm({ className }: { className?: string }) {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Epost</FormLabel>
+              <FormLabel>Din Epost</FormLabel>
               <FormControl>
-                <Input placeholder="Epost" {...field} />
+                <Input placeholder="Din epost" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -61,7 +61,10 @@ export function ContactForm({ className }: { className?: string }) {
             <FormItem>
               <FormLabel>Melding</FormLabel>
               <FormControl>
-                <Textarea placeholder="Hva lurer du på?" {...field} />
+                <Textarea
+                  placeholder="Hvilke fag ønsker du time i? Noe annet du lurer på?"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

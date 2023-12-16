@@ -36,8 +36,8 @@ function Divider({
 export default function Home() {
   return (
     <main className="flex min-h-screen w-full flex-col items-stretch justify-between">
-      <nav className="fixed top-0 w-full flex flex-row justify-between p-2 bg-primary/80 backdrop-blur-sm z-50 gap-8 text-white">
-        <ul className="flex flex-row w-full gap-4 place-content-end text-lg">
+      <nav className="fixed top-0 w-full flex flex-row justify-between p-2 max-sm:pr-4 bg-primary/80 backdrop-blur-sm z-50 gap-8 text-white">
+        <ul className="flex flex-row w-full gap-6 place-content-end sm:place-content-center text-lg">
           <li>
             <a href="#hero">Hjem</a>
           </li>
@@ -48,20 +48,20 @@ export default function Home() {
             <a href="#kontakt">Kontakt</a>
           </li>
         </ul>
-        <IoMenuOutline size={32} />
       </nav>
       <section
         id="hero"
-        className="flex flex-col gap-8 bg-primary p-8 pb-4 relative overflow-visible"
+        className="flex flex-col sm:flex-row-reverse items-center sm:flex-1 sm:place-content-center gap-8 py-10 bg-primary p-8 pb-4 relative overflow-visible sm:py-20"
       >
         <Image
           src={TeacherImage}
           alt="Hero-bilde"
-          className="w-full aspect-auto max-h-[40vh] object-contain"
+          className="w-full aspect-auto max-h-[40vh] sm:max-h-[600px] self-start object-contain sm:w-fit"
           width={200}
           height={200}
+          priority
         />
-        <div className="">
+        <div className="sm:place-self-end">
           <h1 className="text-background text-4xl font-sans font-bold">
             Vi hjelper
             <br /> med matte
@@ -81,24 +81,26 @@ export default function Home() {
       </section>
       <section
         id="fag"
-        className="flex flex-col items-center bg-white py-16 pt-14 px-4 relative"
+        className="flex flex-col items-center bg-white py-20 sm:py-28 px-4 relative"
       >
         <h2 className="text-3xl font-bold font-sans">Her er fagene:</h2>
-        {classes.map((cls) => (
-          <div key={cls.school} className="mt-6">
-            <h3 className="text-center text-2xl">{cls.school}</h3>
-            <ul className="flex flex-row justify-center items-center flex-wrap mt-2 gap-3 px-6">
-              {cls.subjects.map((s) => (
-                <li
-                  key={s}
-                  className="py-2 px-4 bg-background rounded-xl text-lg"
-                >
-                  {s}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <div className="max-w-screen-md">
+          {classes.map((cls) => (
+            <div key={cls.school} className="mt-6">
+              <h3 className="text-center text-2xl">{cls.school}</h3>
+              <ul className="flex flex-row justify-center items-center flex-wrap mt-2 gap-3 px-6">
+                {cls.subjects.map((s) => (
+                  <li
+                    key={s}
+                    className="py-2 px-4 bg-background rounded-xl text-lg"
+                  >
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
         <Button
           variant="secondary"
           className="text-background text-md px-12 py-7 rounded-full mt-6"
@@ -106,16 +108,16 @@ export default function Home() {
           BLI KUNDE
         </Button>
       </section>
-      <section className="bg-secondary text-background py-8 px-10 relative">
+      <section className="bg-secondary text-background py-12 px-10 relative">
         <Divider position="top" side="left" />
         <h2 className="text-primary text-3xl font-sans font-bold text-center">
           Hva vi tilbyr
         </h2>
-        <div className="flex flex-col gap-8 mt-6">
+        <div className="flex flex-col sm:flex-row gap-8 mt-6 items-center sm:items-stretch">
           {services.map((service) => (
             <div
               key={service.title}
-              className="bg-secondary-light rounded-3xl p-6"
+              className="bg-secondary-light rounded-3xl p-6 max-w-sm"
             >
               <service.icon
                 size={70}
@@ -130,11 +132,11 @@ export default function Home() {
         </div>
         <Divider position="bottom" side="left" />
       </section>
-      <section className="bg-primary py-14 px-10 relative">
+      <section className="bg-primary py-14 sm:py-20 sm:pb-14 px-10 relative">
         <h2 className="text-3xl text-secondary font-bold text-center">
           Om læreren
         </h2>
-        <div className="flex flex-col items-center gap-2 mt-4 bg-background rounded-3xl p-6">
+        <div className="flex flex-col items-center gap-2 mt-4 bg-background rounded-3xl p-6 max-w-md mx-auto">
           <Image
             className="rounded-full"
             src={PortraitImage}
@@ -156,15 +158,15 @@ export default function Home() {
         </div>
         <Divider position="bottom" side="right" />
       </section>
-      <section className="flex flex-col items-center px-10 py-14 bg-white">
+      <section className="flex flex-col items-center px-10 gap-4 bg-white py-24">
         <h2 className="text-3xl text-primary text-center font-bold">
           Hva elevene syns
         </h2>
-        <div className="flex flex-col items-center gap-6 mt-6">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap items-center gap-6 mt-6">
           {feedback.map((f) => (
             <div
               key={f.author}
-              className="flex flex-col items-center bg-background rounded-3xl p-6 gap-3 text-lg"
+              className="flex flex-col items-center bg-background rounded-3xl p-6 gap-3 text-lg max-w-sm"
             >
               <Image
                 className=""
@@ -189,34 +191,38 @@ export default function Home() {
         id="kontakt"
         className="bg-black rounded-t-3xl text-white p-6 py-10"
       >
-        <h2 className="text-center text-3xl font-bold">Kontakt oss</h2>
-        <div className="flex flex-col gap-8 text-lg">
-          <div className="mt-8">
-            <ContactForm className="bg-secondary rounded-3xl p-4 text-background" />
+        <div className="flex flex-col sm:flex-row-reverse justify-center gap-8 text-lg">
+          <div className="w-full">
+            <h2 className="text-center sm:text-left mb-4 text-3xl font-bold">
+              Kontakt oss
+            </h2>
+            <ContactForm className="bg-secondary rounded-3xl p-4 text-background max-w-md" />
           </div>
-          <div className="">
-            <p className="text-primary font-bold">Epost:</p>
-            <p className="">a.lapenas04@gmail.com</p>
-          </div>
-          <div className="">
-            <p className="text-primary font-bold">Følg oss:</p>
-            <ul className="flex flex-row gap-4 mt-2">
-              <li>
-                <a href="https://www.instagram.com/atas_lapenas/">
-                  <FaInstagram size={48} color="white" />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.facebook.com/atas.lapenas">
-                  <FaFacebook size={48} color="white" />
-                </a>
-              </li>
-              <li>
-                <a href="www.linkedin.com/in/atas2005">
-                  <FaLinkedin size={48} color="white" />
-                </a>
-              </li>
-            </ul>
+          <div className="flex flex-col gap-4 w-full">
+            <div className="">
+              <p className="text-primary font-bold">Epost:</p>
+              <p className="">a.lapenas04@gmail.com</p>
+            </div>
+            <div className="">
+              <p className="text-primary font-bold">Følg oss:</p>
+              <ul className="flex flex-row gap-4 mt-2">
+                <li>
+                  <a href="https://www.instagram.com/atas_lapenas/">
+                    <FaInstagram size={48} color="white" />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/atas.lapenas">
+                    <FaFacebook size={48} color="white" />
+                  </a>
+                </li>
+                <li>
+                  <a href="www.linkedin.com/in/atas2005">
+                    <FaLinkedin size={48} color="white" />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </footer>
