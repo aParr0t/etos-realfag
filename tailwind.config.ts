@@ -18,7 +18,6 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-nunito)"],
-        // sans: ["'Nunito Sans'", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -28,7 +27,7 @@ module.exports = {
         foreground: "hsl(var(--foreground))",
 
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "hsl(var(--primary) / <alpha-value>)",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {

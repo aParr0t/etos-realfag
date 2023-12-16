@@ -2,10 +2,12 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { IoMenuOutline } from "react-icons/io5";
 
 import TeacherImage from "/public/static/images/teacher drawing.png";
 import PortraitImage from "/public/static/images/portrait.jpg";
 import { classes, services, feedback } from "@/home-page-data";
+import { ContactForm } from "@/components/ContactForm";
 
 function Divider({
   className,
@@ -34,8 +36,24 @@ function Divider({
 export default function Home() {
   return (
     <main className="flex min-h-screen w-full flex-col items-stretch justify-between">
-      <nav></nav>
-      <section className="flex flex-col gap-8 bg-primary p-8 pb-4 relative overflow-visible">
+      <nav className="fixed top-0 w-full flex flex-row justify-between p-2 bg-primary/80 backdrop-blur-sm z-50 gap-8 text-white">
+        <ul className="flex flex-row w-full gap-4 place-content-end text-lg">
+          <li>
+            <a href="#hero">Hjem</a>
+          </li>
+          <li>
+            <a href="#fag">Fag</a>
+          </li>
+          <li>
+            <a href="#kontakt">Kontakt</a>
+          </li>
+        </ul>
+        <IoMenuOutline size={32} />
+      </nav>
+      <section
+        id="hero"
+        className="flex flex-col gap-8 bg-primary p-8 pb-4 relative overflow-visible"
+      >
         <Image
           src={TeacherImage}
           alt="Hero-bilde"
@@ -61,7 +79,10 @@ export default function Home() {
         </div>
         <Divider side="right" position="bottom" />
       </section>
-      <section className="flex flex-col items-center bg-white py-16 pt-14 px-4 relative">
+      <section
+        id="fag"
+        className="flex flex-col items-center bg-white py-16 pt-14 px-4 relative"
+      >
         <h2 className="text-3xl font-bold font-sans">Her er fagene:</h2>
         {classes.map((cls) => (
           <div key={cls.school} className="mt-6">
@@ -164,15 +185,17 @@ export default function Home() {
           BLI KUNDE
         </Button>
       </section>
-      <footer className="bg-black rounded-t-3xl text-white p-6 py-10">
+      <footer
+        id="kontakt"
+        className="bg-black rounded-t-3xl text-white p-6 py-10"
+      >
         <h2 className="text-center text-3xl font-bold">Kontakt oss</h2>
         <div className="flex flex-col gap-8 text-lg">
           <div className="mt-8">
-            <p className="text-primary font-bold">Ring meg:</p>
-            <p className="">967 42 298</p>
+            <ContactForm className="bg-secondary rounded-3xl p-4 text-background" />
           </div>
           <div className="">
-            <p className="text-primary font-bold">Email:</p>
+            <p className="text-primary font-bold">Epost:</p>
             <p className="">a.lapenas04@gmail.com</p>
           </div>
           <div className="">
