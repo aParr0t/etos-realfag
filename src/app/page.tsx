@@ -217,7 +217,7 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="www.linkedin.com/in/atas2005">
+                  <a href="https://www.linkedin.com/in/atas2005">
                     <FaLinkedin size={48} color="white" />
                   </a>
                 </li>
