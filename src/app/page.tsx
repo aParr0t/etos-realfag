@@ -89,7 +89,6 @@ export default function Home() {
         <HoverIn delay={0.5}>
           <Classes />
         </HoverIn>
-        <CtaButton />
       </section>
       <section className="flex flex-col items-center bg-secondary text-background py-12 px-10 relative">
         <Divider position="top" side="left" />
@@ -99,6 +98,7 @@ export default function Home() {
           </h2>
         </HoverIn>
         <Services />
+        <CtaButton className="bg-primary" />
         <Divider position="bottom" side="left" />
       </section>
       <section className="bg-primary py-14 sm:py-20 sm:pb-14 px-10 relative">
@@ -143,7 +143,7 @@ export default function Home() {
         </HoverIn>
         <CtaButton />
       </section> */}
-      <footer className="bg-black rounded-t-3xl text-white p-6 py-10 sm:px-20 flex flex-col sm:flex-row-reverse justify-center gap-8 text-lg">
+      <footer className="bg-black rounded-t-3xl text-white p-6 py-10 sm:px-20 flex flex-col sm:flex-row justify-center gap-8 text-lg">
         <div id="kontakt" className="w-full">
           <h2 className="text-center sm:text-left mb-4 text-3xl font-bold">
             Kontakt oss
